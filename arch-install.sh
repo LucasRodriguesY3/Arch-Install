@@ -8,7 +8,7 @@ trap cleanup EXIT
 
 ## ========= SET VALUES
 DISK="/dev/nvme0n1"
-EFI_SIZE_MIB=512
+EFI_SIZE_MIB=1024
 SWAP_SIZE_MIB=4096
 ROOT_FS="ext4"     # atualmente fixo em ext4
 
@@ -99,8 +99,8 @@ pre_checks() {
 }
 
 ## ========= BASE INSTALL (vars)
-HOSTNAME="ArchRice"
-USERNAME="Archnight"
+HOSTNAME="Archbox"
+USERNAME="lm"
 PASSWORD="12345abcde"
 PKGS="base linux linux-firmware git nano networkmanager intel-ucode sudo"
 
@@ -133,7 +133,6 @@ hwclock --systohc
 
 echo "[*] Locale & keymap..."
 sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
-sed -i 's/#pt_BR.UTF-8/pt_BR.UTF-8/' /etc/locale.gen
 locale-gen
 echo 'LANG=pt_BR.UTF-8' > /etc/locale.conf
 echo 'KEYMAP=br-abnt2' > /etc/vconsole.conf
